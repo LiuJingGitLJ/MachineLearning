@@ -4,6 +4,7 @@ from sklearn.neighbors import KNeighborsClassifier
 #导入sklearn.neighbors模块中KNN类
 import numpy as np
 iris=datasets.load_iris()
+# print(iris)
 #导入鸢尾花的数据集，iris是一个数据集，内部有样本数据
 iris_x=iris.data
 iris_y=iris.target
@@ -37,3 +38,10 @@ print(iris_y_test)
 # 输出原始测试数据集的正确标签，以方便对比
 print('Accuracy:', score)
 # 输出准确率计算结果</span>
+'''
+iris_y_predict = 
+[2 0 2 2 2 0 0 1 2 0]
+iris_y_test = 
+[2 0 2 2 2 0 0 1 1 0]
+Accuracy: 0.9
+'''

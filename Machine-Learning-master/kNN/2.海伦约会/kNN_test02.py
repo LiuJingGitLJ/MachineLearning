@@ -1,16 +1,14 @@
-# -*- coding: UTF-8 -*-
-
+# -*- coding:utf-8 -*-
 from matplotlib.font_manager import FontProperties
 import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 import numpy as np
 import operator
 
-
-"""
+'''
 函数说明:kNN算法,分类器
 
-Parameters:
+# Parameters:
 	inX - 用于分类的数据(测试集)
 	dataSet - 用于训练的数据(训练集)
 	labes - 分类标签
@@ -20,7 +18,8 @@ Returns:
 
 Modify:
 	2017-03-24
-"""
+	
+'''
 def classify0(inX, dataSet, labels, k):
 	#numpy函数shape[0]返回dataSet的行数
 	dataSetSize = dataSet.shape[0]
@@ -280,3 +279,4 @@ Modify:
 """
 if __name__ == '__main__':
 	datingClassTest()
+	classifyPerson()
