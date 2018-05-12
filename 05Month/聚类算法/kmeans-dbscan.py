@@ -47,7 +47,7 @@ beer.sort_values('cluster')
 
 
 from pandas.tools.plotting import scatter_matrix
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 
 cluster_centers = km.cluster_centers_
 
@@ -75,7 +75,7 @@ centers = beer.groupby("cluster").mean().reset_index()
 # In[15]:
 
 
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 import matplotlib.pyplot as plt
 plt.rcParams['font.size'] = 14
 
