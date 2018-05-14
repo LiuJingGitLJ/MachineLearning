@@ -106,7 +106,7 @@ Modify:
 """
 def showdatas(datingDataMat, datingLabels):
 	#设置汉字格式
-	font = FontProperties(fname=r"c:\windows\fonts\simsun.ttc", size=14)
+	font = FontProperties(fname=r"/Users/manpower/Documents/PythonFile/OtherFile/projects/flaks171019/app/static/assets/fonts/glyphicons-halflings-regular.ttf", size=14)
 	#将fig画布分隔成1行1列,不共享x轴和y轴,fig画布的大小为(13,8)
 	#当nrow=2,nclos=2时,代表fig画布被分为四个区域,axs[0][0]表示第一行第一个区域
 	fig, axs = plt.subplots(nrows=2, ncols=2,sharex=False, sharey=False, figsize=(13,8))
@@ -247,24 +247,25 @@ Modify:
 def classifyPerson():
 	#输出结果
 	resultList = ['讨厌','有些喜欢','非常喜欢']
-	#三维特征用户输入
-	precentTats = float(input("玩视频游戏所耗时间百分比:"))
-	ffMiles = float(input("每年获得的飞行常客里程数:"))
-	iceCream = float(input("每周消费的冰激淋公升数:"))
-	#打开的文件名
+	# #三维特征用户输入
+	# precentTats = float(input("玩视频游戏所耗时间百分比:"))
+	# ffMiles = float(input("每年获得的飞行常客里程数:"))
+	# iceCream = float(input("每周消费的冰激淋公升数:"))
+	# #打开的文件名
 	filename = "datingTestSet.txt"
 	#打开并处理数据
 	datingDataMat, datingLabels = file2matrix(filename)
-	#训练集归一化
-	normMat, ranges, minVals = autoNorm(datingDataMat)
-	#生成NumPy数组,测试集
-	inArr = np.array([ffMiles, precentTats, iceCream])
-	#测试集归一化
-	norminArr = (inArr - minVals) / ranges
-	#返回分类结果
-	classifierResult = classify0(norminArr, normMat, datingLabels, 3)
-	#打印结果
-	print("你可能%s这个人" % (resultList[classifierResult-1]))
+	showdatas(datingDataMat,datingLabels)
+	# #训练集归一化
+	# normMat, ranges, minVals = autoNorm(datingDataMat)
+	# #生成NumPy数组,测试集
+	# inArr = np.array([ffMiles, precentTats, iceCream])
+	# #测试集归一化
+	# norminArr = (inArr - minVals) / ranges
+	# #返回分类结果
+	# classifierResult = classify0(norminArr, normMat, datingLabels, 3)
+	# #打印结果
+	# print("你可能%s这个人" % (resultList[classifierResult-1]))
 
 """
 函数说明:main函数
@@ -278,5 +279,5 @@ Modify:
 	2017-03-24
 """
 if __name__ == '__main__':
-	datingClassTest()
+	#datingClassTest()
 	classifyPerson()

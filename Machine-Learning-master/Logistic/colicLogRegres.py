@@ -173,10 +173,18 @@ def colicSklearn():
 	for line in frTrain.readlines():
 		currLine = line.strip().split('\t')
 		lineArr = []
+		#循环遍历数组 将数据添加进数组中
 		for i in range(len(currLine)-1):
 			lineArr.append(float(currLine[i]))
+
+
+		#将数组添加进训练集
 		trainingSet.append(lineArr)
 		trainingLabels.append(float(currLine[-1]))
+		print((currLine))
+		print(float(currLine[-1]))
+		print(lineArr)
+
 	for line in frTest.readlines():
 		currLine = line.strip().split('\t')
 		lineArr =[]
@@ -184,6 +192,7 @@ def colicSklearn():
 			lineArr.append(float(currLine[i]))
 		testSet.append(lineArr)
 		testLabels.append(float(currLine[-1]))
+
 	classifier = LogisticRegression(solver = 'sag',max_iter = 5000).fit(trainingSet, trainingLabels)
 	test_accurcy = classifier.score(testSet, testLabels) * 100
 	print('正确率:%f%%' % test_accurcy)

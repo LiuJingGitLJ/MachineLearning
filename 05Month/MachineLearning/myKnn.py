@@ -4,7 +4,7 @@ import math
 import operator
 
 def loadDataset(filename, split, trainingset=[], testset=[]):
-    with open(filename,'rb') as csvfile:
+    with open(filename,'r') as csvfile:
         lines = csv.reader(csvfile)
         dataset=list(lines)
         for x in range(len(dataset)-1):
@@ -56,7 +56,7 @@ def main():
     trainingSet=[]
     testSet =[]
     split=0.67
-    loadDataset(r"play.txt", split, trainingSet, testSet)
+    loadDataset(r"play.csv", split, trainingSet, testSet)
     print("train set :"+repr(len(trainingSet)) )
     print("test set :"+repr(len(testSet)))
     
