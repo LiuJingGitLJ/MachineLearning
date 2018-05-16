@@ -1,0 +1,46 @@
+PCA 和 协方差
+协方差矩阵
+
+#
+方差较大
+
+时间序列分析
+累加+累成
+
+金融数据累成
+
+
+趋势
+线形或非线性
+
+周期性（季节性）
+
+噪声：随机变动，需要估计或减少
+
+
+协同过滤算法
+
+数据作为支撑
+
+
+分类问题：LR SVM GBDT DNN
+
+
+sklearn
+解决问题时 可以去选择算法，选择不同的算法都可以实现数据分析
+
+
+
+
+#######
+pip3 install xgboost
+pip3 install pycountry
+
+下载 Anaconda 并安装
+安装：conda install graphviz #多次执行命令 并安装
+重启Pycharm
+
+
+
+
+

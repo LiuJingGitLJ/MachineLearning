@@ -9,13 +9,11 @@ import pandas as pd
 df = pd.read_csv('iris.data')
 df.head()
 
-
-# In[3]:
-
+print(df.head())
 
 df.columns=['sepal_len', 'sepal_wid', 'petal_len', 'petal_wid', 'class']
 df.head()
-
+print(df.head())
 
 # In[4]:
 
@@ -86,108 +84,108 @@ cov_mat = np.cov(X_std.T)
 
 eig_vals, eig_vecs = np.linalg.eig(cov_mat)
 
-print('Eigenvectors \n%s' %eig_vecs)
-print('\nEigenvalues \n%s' %eig_vals)
+# print('Eigenvectors \n%s' %eig_vecs)
+# print('\nEigenvalues \n%s' %eig_vals)
 
 
 # In[10]:
 
 
 # Make a list of (eigenvalue, eigenvector) tuples
-eig_pairs = [(np.abs(eig_vals[i]), eig_vecs[:,i]) for i in range(len(eig_vals))]
-print (eig_pairs)
-print ('----------')
-# Sort the (eigenvalue, eigenvector) tuples from high to low
-eig_pairs.sort(key=lambda x: x[0], reverse=True)
+# eig_pairs = [(np.abs(eig_vals[i]), eig_vecs[:,i]) for i in range(len(eig_vals))]
+# print (eig_pairs)
+# print ('----------')
+# # Sort the (eigenvalue, eigenvector) tuples from high to low
+# eig_pairs.sort(key=lambda x: x[0], reverse=True)
 
 # Visually confirm that the list is correctly sorted by decreasing eigenvalues
-print('Eigenvalues in descending order:')
-for i in eig_pairs:
-    print(i[0])
+# print('Eigenvalues in descending order:')
+# for i in eig_pairs:
+#     print(i[0])
 
 
 # In[11]:
 
 
-tot = sum(eig_vals)
-var_exp = [(i / tot)*100 for i in sorted(eig_vals, reverse=True)]
-print (var_exp)
-cum_var_exp = np.cumsum(var_exp)
-cum_var_exp
+# tot = sum(eig_vals)
+# var_exp = [(i / tot)*100 for i in sorted(eig_vals, reverse=True)]
+# print (var_exp)
+# cum_var_exp = np.cumsum(var_exp)
+# cum_var_exp
 
 
 # In[50]:
 
 
-a = np.array([1,2,3,4])
-print (a)
-print ('-----------')
-print (np.cumsum(a))
+# a = np.array([1,2,3,4])
+# print (a)
+# print ('-----------')
+# print (np.cumsum(a))
 
 
 # In[51]:
 
 
 
-plt.figure(figsize=(6, 4))
-
-plt.bar(range(4), var_exp, alpha=0.5, align='center',
-            label='individual explained variance')
-plt.step(range(4), cum_var_exp, where='mid',
-             label='cumulative explained variance')
-plt.ylabel('Explained variance ratio')
-plt.xlabel('Principal components')
-plt.legend(loc='best')
-plt.tight_layout()
-plt.show()
+# plt.figure(figsize=(6, 4))
+#
+# plt.bar(range(4), var_exp, alpha=0.5, align='center',
+#             label='individual explained variance')
+# plt.step(range(4), cum_var_exp, where='mid',
+#              label='cumulative explained variance')
+# plt.ylabel('Explained variance ratio')
+# plt.xlabel('Principal components')
+# plt.legend(loc='best')
+# plt.tight_layout()
+# plt.show()
 
 
 # In[52]:
 
 
-matrix_w = np.hstack((eig_pairs[0][1].reshape(4,1),
-                      eig_pairs[1][1].reshape(4,1)))
-
-print('Matrix W:\n', matrix_w)
+# matrix_w = np.hstack((eig_pairs[0][1].reshape(4,1),
+#                       eig_pairs[1][1].reshape(4,1)))
+#
+# print('Matrix W:\n', matrix_w)
 
 
 # In[64]:
 
 
-Y = X_std.dot(matrix_w)
-Y
+# Y = X_std.dot(matrix_w)
+# Y
 
 
 # In[54]:
 
 
-plt.figure(figsize=(6, 4))
-for lab, col in zip(('Iris-setosa', 'Iris-versicolor', 'Iris-virginica'),
-                        ('blue', 'red', 'green')):
-     plt.scatter(X[y==lab, 0],
-                X[y==lab, 1],
-                label=lab,
-                c=col)
-plt.xlabel('sepal_len')
-plt.ylabel('sepal_wid')
-plt.legend(loc='best')
-plt.tight_layout()
-plt.show()
+# plt.figure(figsize=(6, 4))
+# for lab, col in zip(('Iris-setosa', 'Iris-versicolor', 'Iris-virginica'),
+#                         ('blue', 'red', 'green')):
+#      plt.scatter(X[y==lab, 0],
+#                 X[y==lab, 1],
+#                 label=lab,
+#                 c=col)
+# plt.xlabel('sepal_len')
+# plt.ylabel('sepal_wid')
+# plt.legend(loc='best')
+# plt.tight_layout()
+# plt.show()
 
 
 # In[12]:
 
 
-plt.figure(figsize=(6, 4))
-for lab, col in zip(('Iris-setosa', 'Iris-versicolor', 'Iris-virginica'),
-                        ('blue', 'red', 'green')):
-     plt.scatter(Y[y==lab, 0],
-                Y[y==lab, 1],
-                label=lab,
-                c=col)
-plt.xlabel('Principal Component 1')
-plt.ylabel('Principal Component 2')
-plt.legend(loc='lower center')
-plt.tight_layout()
-plt.show()
+# plt.figure(figsize=(6, 4))
+# for lab, col in zip(('Iris-setosa', 'Iris-versicolor', 'Iris-virginica'),
+#                         ('blue', 'red', 'green')):
+#      plt.scatter(Y[y==lab, 0],
+#                 Y[y==lab, 1],
+#                 label=lab,
+#                 c=col)
+# plt.xlabel('Principal Component 1')
+# plt.ylabel('Principal Component 2')
+# plt.legend(loc='lower center')
+# plt.tight_layout()
+# plt.show()
 
