@@ -38,7 +38,7 @@ enc = LabelEncoder()
 label_encoder = enc.fit(y)
 y = label_encoder.transform(y) + 1
 
-#label_dict = {1: 'Setosa', 2: 'Versicolor', 3:'Virginica'}
+label_dict = {1: 'Setosa', 2: 'Versicolor', 3:'Virginica'}
 
 
 # <img src="2.png" alt="FAO" width="290" align="left">

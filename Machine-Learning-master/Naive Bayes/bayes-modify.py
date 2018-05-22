@@ -179,7 +179,7 @@ def spamTest():
         randIndex = int(random.uniform(0, len(trainingSet)))                #随机选取索索引值
         testSet.append(trainingSet[randIndex])                              #添加测试集的索引值
         del(trainingSet[randIndex])                                         #在训练集列表中删除添加到测试集的索引值
-    trainMat = []; trainClasses = []                                        #创建训练集矩阵和训练集类别标签系向量             
+    trainMat = []; trainClasses = []                                        #创建训练集矩阵和训练集类别标签系向量
     for docIndex in trainingSet:                                            #遍历训练集
         trainMat.append(setOfWords2Vec(vocabList, docList[docIndex]))       #将生成的词集模型添加到训练矩阵中
         trainClasses.append(classList[docIndex])                            #将类别添加到训练集类别标签系向量中

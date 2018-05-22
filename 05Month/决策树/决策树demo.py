@@ -7,8 +7,8 @@
 # get_ipython().magic('matplotlib inline')
 '''
 
-pip3 install graphviz
- pip3 install pyparsing
+
+ conda install graphviz
 
 '''
 import matplotlib.pyplot as plt
