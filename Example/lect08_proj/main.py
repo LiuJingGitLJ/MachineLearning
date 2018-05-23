@@ -82,6 +82,7 @@ def run_main():
         # 保存处理好的数据
         filtered_data.to_csv(cln_datapath, index=False)
 
+
     # 读取处理好的数据
     clean_data = pd.read_csv(cln_datapath, encoding='latin1',
                              usecols=['gender', 'cln_desc', 'cln_text',
@@ -90,18 +91,25 @@ def run_main():
     # 查看label的分布
     print(clean_data.groupby('gender').size())
 
-    # 替换male->0, female->1
+    #print('1111----')
+    #print(clean_data)
+    # 替换male->0, female->1 male 增加标签label=0；femalelabel=1
+    print(clean_data.head())
+    #如果gender 为 male label 设为0
     clean_data.loc[clean_data['gender'] == 'male', 'label'] = 0
     clean_data.loc[clean_data['gender'] == 'female', 'label'] = 1
+    print('22222----')
+    #print(clean_data)
+    print(clean_data.head())
 
     # 3. 分割数据集
-    # 分词 去除停用词
+    # 分词 去除停用词 所有的列的内容 执行apply 函数
     proc_desc_s = clean_data['cln_desc'].apply(proc_text)
     clean_data['desc_words'] = proc_desc_s
-
+    print(clean_data.head())
     proc_text_s = clean_data['cln_text'].apply(proc_text)
     clean_data['text_words'] = proc_text_s
-
+    print(clean_data.head())
     df_train, df_test = split_train_test(clean_data)
     # 查看训练集测试集基本信息
     print('训练集中各类的数据个数：', df_train.groupby('label').size())

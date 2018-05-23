@@ -76,6 +76,7 @@ def split_train_test(df_data, size=0.8):
     """
     # 为保证每个类中的数据能在训练集中和测试集中的比例相同，所以需要依次对每个类进行处理
     df_train = pd.DataFrame()
+
     df_test = pd.DataFrame()
 
     labels = [0, 1]
